@@ -9,10 +9,7 @@ part 'api_service.g.dart';
 
 @RestApi(baseUrl: "https://reqres.in/api")
 abstract class ApiClient {
-  factory ApiClient(Dio dio, {String baseUrl}) {
-    dio.options = BaseOptions(receiveTimeout: 5000, connectTimeout: 5000);
-    return _ApiClient(dio, baseUrl: settings.BASE_API_URL);
-  }
+  factory ApiClient(Dio dio, {String baseUrl}) = _ApiClient;
 
   @GET('/users?page={id}')
   Future<UserResponse> getUsers(@Path('id') String id);

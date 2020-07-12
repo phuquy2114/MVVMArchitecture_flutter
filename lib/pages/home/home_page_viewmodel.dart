@@ -23,6 +23,7 @@ class HomePageViewModel extends ChangeNotifier {
       this.onSuccess = onSuccess;
       userResponse = value;
       this.onError = onError;
+      print(userResponse.data.length);
       notifyListeners();
     }).catchError((error) {
       print(error);
